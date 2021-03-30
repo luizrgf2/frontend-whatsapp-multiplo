@@ -75,6 +75,48 @@ const Styles = StyleSheet.create({
         color:'#FFF'
 
 
+    },
+    container_user:{
+
+        flexDirection:'row',
+        width:x*0.95,
+        height:y*0.08,
+        backgroundColor:'#23b180',
+        marginTop:10,
+        borderRadius:20,
+        opacity:0.8,
+        alignItems:'center',
+        paddingLeft:10,
+        paddingBottom:10
+        
+
+
+    },
+    image_user:{
+
+
+        width:x*0.2,
+        height:y*0.1,
+        borderRadius:40,
+        marginRight:20
+
+    },
+    text_user:{
+        color:'#fff',
+        fontWeight:"bold",
+        marginRight:x*0.4
+    },
+    text_chat:{
+        color:'#fff',
+        fontWeight:"bold",
+        marginRight:x*0.4,
+        fontSize:20,
+        color:'#006dc7'
+    },
+    text_client:{
+        color:'#fff',
+        marginRight:x*0.4,
+        color:'#89939c'
     }
 
     

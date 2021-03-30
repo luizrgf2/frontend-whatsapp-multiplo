@@ -32,7 +32,11 @@ function FormLogin(props){
                 <TextInput placeholder='Senha' autoCorrect={false} maxLength={100} secureTextEntry={true} style={[styles.input_style]} onChangeText={text=>Setsenha(text)} autoCapitalize='none' placeholderTextColor='#a19e9c'></TextInput>
             </View>
 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>{
+
+                props.nav.navigate('Home')
+
+            }}>
                 <View style={[styles.button_login_style]}>
                     <Text style={[styles.text_button_login_style]}>Login</Text>
                 </View>
@@ -55,7 +59,7 @@ function FormLogin(props){
 function App({navigation}){
 
 
-    const image = require('../../assets/wpp.png')
+    const image = require('../../../assets/wpp.png')
 
 
     return(
