@@ -81,10 +81,9 @@ const Styles = StyleSheet.create({
         flexDirection:'row',
         width:x*0.95,
         height:y*0.08,
-        backgroundColor:'#23b180',
+        backgroundColor:'#8ccf93',
         marginTop:10,
         borderRadius:20,
-        opacity:0.8,
         alignItems:'center',
         paddingLeft:10,
         paddingBottom:10
@@ -117,7 +116,37 @@ const Styles = StyleSheet.create({
         color:'#fff',
         marginRight:x*0.4,
         color:'#89939c'
-    }
+    },
+    input_style:{ // usado para dar estilo ao TextInput do username e da senha
+
+        width:x*0.8,
+        height:y*0.05,
+        borderColor:'#fff',
+        color:'#fff',
+        fontWeight:'bold',
+        padding:4,
+        backgroundColor:'#000',
+        borderRadius:7
+    },
+    style_modal:{
+        marginTop:10,
+        backgroundColor:'#fff',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius:20
+
+
+    },
+    button_login_style:{
+        width:x*0.4,
+        height:y*0.05,
+        backgroundColor:'#23b180',
+        borderRadius:10,
+        justifyContent:'center',
+        alignItems: 'center',
+        marginTop:y*0.02,
+        marginBottom: y*0.02
+    },
 
     
 

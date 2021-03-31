@@ -4,6 +4,7 @@ const {View,Text,TouchableOpacity,Image,TextInput,KeyboardAvoidingView,FlatList,
 const styles = require('./style').default // importar estilos da tela de login
 const {Checkbox} = require('react-native-paper')
 import { Ionicons } from '@expo/vector-icons';
+const {ReactNativeModal} = require('react-native-modal')
 
 function delete_atendente(name){
 
@@ -32,20 +33,37 @@ function ItemRender(props){
 
     const image = require('../../../assets/programmer.png')
     const name = props.item.name
+    const [visivel, Setvisivel] = useState(false)
+    const [cetor,Setcetor] = useState('')
 
 
     return(
 
+        <TouchableOpacity onPress={()=>Setvisivel(!visivel)}>
 
-        <View style={[styles.container_user]}>
-            <Image source={image} style={[styles.image_user]}></Image>
-            <Text style={[styles.text_user]}>{name}</Text>
-            <TouchableOpacity onPress={()=>{delete_atendente(name)}}>
-                <Ionicons name="md-trash-bin" size={40} color="red" />
-            </TouchableOpacity>
+            <View style={[styles.container_user]}>
+                <ReactNativeModal isVisible={visivel} onBackdropPress={()=>Setvisivel(!visivel)} backdropOpacity={0.9} >
+                    <View style={[styles.style_modal]}>
+                        <Text style={[styles.text_button_login_style,{marginBottom:10}]}>{name}</Text>
+                        <TextInput placeholder='Setor' autoCorrect={false} maxLength={100} secureTextEntry={true} style={[styles.input_style]} onChangeText={text=>Setcetor(text)} autoCapitalize='none' placeholderTextColor='#a19e9c'></TextInput>
+                        <TouchableOpacity>
+                            <View style={[styles.button_login_style]}>
+                                <Text style={[styles.text_button_login_style]}>
+                                    Mudar Setor
+                                </Text>
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </ReactNativeModal>
+                <Image source={image} style={[styles.image_user]}></Image>
+                <Text style={[styles.text_user]}>{name}</Text>
+                <TouchableOpacity onPress={()=>{delete_atendente(name)}}>
+                    <Ionicons name="md-trash-bin" size={40} color="red" />
+                </TouchableOpacity>
 
 
-        </View>
+            </View>
+        </TouchableOpacity>
 
 
 
@@ -60,7 +78,7 @@ function ItemRender(props){
 function Atendentes(){
 
 
-    const [data, Setdata] =  useState([])
+    const [data, Setdata] =  useState([{name:'luiz'}])
 
 
     return(
@@ -70,7 +88,7 @@ function Atendentes(){
             
             <FlatList
                 data={data}
-                renderItem={item=><TouchableOpacity><ItemRender item={item.item}></ItemRender></TouchableOpacity>}
+                renderItem={item=><ItemRender item={item.item}></ItemRender>}
             >
             
 
@@ -88,8 +106,6 @@ function Atendentes(){
 
 
 }
-
-
 
 
 function App({navigation}){
