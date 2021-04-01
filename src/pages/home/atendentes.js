@@ -6,6 +6,40 @@ const {Checkbox} = require('react-native-paper')
 import { Ionicons } from '@expo/vector-icons';
 const {ReactNativeModal} = require('react-native-modal')
 
+function Picker(props){
+
+    
+    const name = props.item.item
+    console.log(name)
+
+
+
+    const mudar_setor=()=>{
+
+
+        console.log('Registrado novo cliente')
+
+    }
+
+
+    return(
+        
+        <TouchableOpacity onPress={()=>{}}>
+
+            <View style={[styles.container_picker]}>
+                <Text>{name}</Text>
+            </View>
+
+        </TouchableOpacity>
+
+
+    )
+
+
+
+
+}
+
 function delete_atendente(name){
 
 
@@ -26,8 +60,6 @@ function delete_atendente(name){
     ])
 
 }
-
-
 function ItemRender(props){
 
 
@@ -35,7 +67,8 @@ function ItemRender(props){
     const name = props.item.name
     const [visivel, Setvisivel] = useState(false)
     const [cetor,Setcetor] = useState('')
-
+    const [selected,Setselected] = useState('Escolha')
+    const [data,Setdata] = useState(['Suporte','Franqueado','Finaceiro','Cliente'])
 
     return(
 
@@ -44,15 +77,10 @@ function ItemRender(props){
             <View style={[styles.container_user]}>
                 <ReactNativeModal isVisible={visivel} onBackdropPress={()=>Setvisivel(!visivel)} backdropOpacity={0.9} >
                     <View style={[styles.style_modal]}>
-                        <Text style={[styles.text_button_login_style,{marginBottom:10}]}>{name}</Text>
-                        <TextInput placeholder='Setor' autoCorrect={false} maxLength={100} secureTextEntry={true} style={[styles.input_style]} onChangeText={text=>Setcetor(text)} autoCapitalize='none' placeholderTextColor='#a19e9c'></TextInput>
-                        <TouchableOpacity>
-                            <View style={[styles.button_login_style]}>
-                                <Text style={[styles.text_button_login_style]}>
-                                    Mudar Setor
-                                </Text>
-                            </View>
-                        </TouchableOpacity>
+                        
+                        <Text style={[styles.text_button_login_style,{marginBottom:10}]}>{name}-escolha o setor</Text>
+                        <FlatList data={data} renderItem={item=><Picker item={item}></Picker>}></FlatList>
+
                     </View>
                 </ReactNativeModal>
                 <Image source={image} style={[styles.image_user]}></Image>
@@ -72,8 +100,6 @@ function ItemRender(props){
 
 
 }
-
-
 
 function Atendentes(){
 
@@ -106,7 +132,6 @@ function Atendentes(){
 
 
 }
-
 
 function App({navigation}){
 

@@ -133,7 +133,8 @@ const Styles = StyleSheet.create({
         backgroundColor:'#fff',
         alignItems:'center',
         justifyContent:'center',
-        borderRadius:20
+        borderRadius:20,
+        height:y*0.3,
 
 
     },
@@ -147,6 +148,16 @@ const Styles = StyleSheet.create({
         marginTop:y*0.02,
         marginBottom: y*0.02
     },
+    container_picker: {
+
+        width:x*0.5,
+        height:y*0.05,
+        backgroundColor:'#23b180',
+        padding:10,
+        borderRadius:7,
+        marginTop:5,
+        alignItems:'center'
+    }
 
     
 

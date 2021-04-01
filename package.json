@@ -28,7 +28,8 @@
     "react-native-screens": "^2.15.2",
     "react-native-vector-icons": "^8.1.0",
     "react-native-web": "^0.15.0",
-    "tslib": "^2.1.0"
+    "tslib": "^2.1.0",
+    "@react-native-picker/picker": "1.9.2"
   },
   "devDependencies": {
     "@babel/core": "~7.9.0"
